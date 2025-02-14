@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.PetWell" parent="Base.Theme.PetWell" />
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/orange</item>
+    </style>
+    <style name="showactionbar" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorOnPrimary">@color/white</item> <!-- Text color on Action Bar -->
+    </style>
 </resources>
