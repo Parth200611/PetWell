@@ -1,10 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".Registration">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Parent Account "
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="16sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Full Name"
+        android:background="@drawable/ettext"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
+        android:padding="10sp"
+        android:inputType="text"
+        android:id="@+id/etName"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="14sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter MobileNo(+91)"
+        android:background="@drawable/ettext"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
+        android:padding="10sp"
+        android:inputType="number"
+        android:id="@+id/etNumber"
+        />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="14sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Email"
+        android:background="@drawable/ettext"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
+        android:padding="10sp"
+        android:inputType="textEmailAddress"
+        android:id="@+id/etEmail"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="14sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Address,city,state"
+        android:background="@drawable/ettext"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
+        android:padding="10sp"
+        android:inputType="textEmailAddress"
+        android:id="@+id/etAddress"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="14sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Username"
+        android:background="@drawable/ettext"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
+        android:padding="10sp"
+        android:inputType="textEmailAddress"
+        android:id="@+id/etreUsername"
+        />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passworde"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="14sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Password"
+        android:background="@drawable/ettext"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
+        android:padding="10sp"
+        android:inputType="textPassword"
+        android:id="@+id/etrePassword"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register Now"
+        android:textColor="@color/white"
+        android:background="@color/orange"
+        android:layout_marginEnd="16sp"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/abtnRegisterNow"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

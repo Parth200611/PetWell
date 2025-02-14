@@ -1,6 +1,7 @@
 package com.mountreachsolution.petwell;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -27,12 +28,23 @@ public class Splash extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         );
+
+        SharedPreferences prefs = getSharedPreferences("login_prefs", MODE_PRIVATE);
+        String username = prefs.getString("username", null);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(Splash.this,LoginActivity.class);
-                startActivity(i);
+                if (username != null) {
+                    // Redirect to Admin or User Homepage
+                    if (username.equals("Admin")) {
+                        startActivity(new Intent(Splash.this, AdminHomepage.class));
+                    } else {
+                        startActivity(new Intent(Splash.this, UserHomepage.class));
+                    }
+                } else {
+                    startActivity(new Intent(Splash.this, LoginActivity.class));
+                }
             }
         },3000);
 

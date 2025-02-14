@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Pet Details"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:layout_marginTop="40dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Category"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp" />
+
+        <!-- Category Spinner -->
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ettext"
+            android:padding="12sp"
+            />
+
+        <!-- Pet Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Pet Name"/>
+        <EditText
+            android:id="@+id/etPetName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Pet Name"
+            android:background="@drawable/ettext"
+            android:padding="12dp"/>
+
+        <!-- Pet Breed -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breed"
+            android:layout_marginTop="12dp"/>
+        <EditText
+            android:id="@+id/etPetBreed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Pet Breed"
+            android:background="@drawable/ettext"
+            android:padding="12dp"/>
+
+        <!-- Pet Age -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:layout_marginTop="12dp"/>
+        <EditText
+            android:id="@+id/etPetAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Pet Age"
+            android:background="@drawable/ettext"
+            android:padding="12dp"
+            android:inputType="number"/>
+
+        <!-- Pet Color -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color"
+            android:layout_marginTop="12dp"/>
+        <EditText
+            android:id="@+id/etPetColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Pet Color"
+            android:background="@drawable/ettext"
+            android:padding="12dp"/>
+
+        <!-- Pet Weight -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight (kg)"
+            android:layout_marginTop="12dp"/>
+        <EditText
+            android:id="@+id/etPetWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Pet Weight"
+            android:background="@drawable/ettext"
+            android:padding="12dp"
+            android:inputType="numberDecimal"/>
+
+        <!-- Submit Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmitPetDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:background="@color/orange"
+            android:layout_marginTop="20dp"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</ScrollView>

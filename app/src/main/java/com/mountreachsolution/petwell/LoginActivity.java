@@ -15,6 +15,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText etUsername, etPassword;
@@ -76,5 +85,41 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void LogIN() {
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+
+        params.put("username",username);
+        params.put("password",password);
+        client.post(urls.login,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    String success=response.getString("success");
+                    if (success.equals("1")){
+                        Toast.makeText(LoginActivity.this, "Welcome Back!", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(LoginActivity.this,UserHomepage.class);
+                        startActivity(i);
+                        saveLoginState(username);
+                    }else {
+                        Toast.makeText(LoginActivity.this, "Incorrect Username and Password", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+        });
+    }
+
+    private void saveLoginState(String username) {
+        getSharedPreferences("login_prefs", MODE_PRIVATE)
+                .edit()
+                .putString("username", username)
+                .apply();
     }
 }
