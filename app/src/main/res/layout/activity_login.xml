@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/login"
+    tools:context=".LoginActivity">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="310dp"
+        app:cardCornerRadius="5dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOG IN"
+                android:textColor="@color/blue"
+                android:gravity="center"
+                android:textSize="31sp"
+                android:layout_marginTop="16sp"
+               android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log in for good health of your pet"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:fontFamily="sans-serif-medium"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="16sp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Username"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16sp"
+                android:layout_marginEnd="16sp"
+                android:background="@drawable/ettext"
+                android:padding="12dp"
+                android:id="@+id/etUsername"
+                /> <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="10sp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Password"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16sp"
+                android:layout_marginEnd="16sp"
+                android:background="@drawable/ettext"
+                android:padding="12dp"
+                android:inputType="textPassword"
+                android:id="@+id/etPassword"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="show password"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/cbshowpassword"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16sp"
+                android:layout_marginEnd="16sp"
+                android:text="LOG IN"
+                android:background="@color/orange"
+                android:textColor="@color/white"
+                android:id="@+id/abtnLogin"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="New Pet's Parent? | Click Here"
+                android:layout_marginTop="10sp"
+                android:id="@+id/tvNewuser"
+                android:textColor="@color/blue"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By Log in you agree to our private policy"
+                android:textColor="#767373"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:textSize="12dp"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
