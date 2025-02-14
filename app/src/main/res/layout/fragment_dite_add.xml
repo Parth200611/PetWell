@@ -1,14 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiteAdd">
+    android:padding="16dp"
+    android:background="#F7F7F7">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+     >
 
-</FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Diet for Your Pet"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="80dp"
+            android:textColor="@color/blue"
+            android:layout_marginBottom="16dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Time"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#555555"/>
+        <EditText
+            android:id="@+id/etTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tap to select time"
+            android:focusable="false"
+            android:background="@drawable/ettext"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="none"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#555555"/>
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tap to select date"
+            android:focusable="false"
+            android:background="@drawable/ettext"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10sp"
+            android:inputType="none"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Food"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#555555"/>
+        <Spinner
+            android:id="@+id/spinnerFood"
+            android:layout_width="match_parent"
+            android:background="@drawable/ettext"
+
+            android:layout_marginBottom="10sp"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantity (grams)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#555555"/>
+        <EditText
+            android:id="@+id/etQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter quantity in grams"
+            android:background="@drawable/ettext"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10sp"
+            android:inputType="number"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#555555"/>
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter description"
+            android:minLines="3"
+            android:gravity="top"
+            android:background="@drawable/ettext"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10sp"
+          />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Drink"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#555555"/>
+        <Spinner
+            android:id="@+id/spinnerDrink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ettext"
+
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16sp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Image"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:textColor="#555555"/>
+        <ImageView
+            android:id="@+id/ivDietImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/baseline_assignment_add_24"/>
+
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orange"
+            android:textColor="@color/white"
+            android:text="Add Image"/>
+
+
+        <Button
+            android:id="@+id/btnPostDiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Diet"
+            android:backgroundTint="@color/orange"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="80dp"/>
+    </LinearLayout>
+</ScrollView>

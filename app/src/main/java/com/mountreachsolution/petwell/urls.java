@@ -7,4 +7,7 @@ public class urls {
     public static String login=address+"login.php";
     public static String profil=address+"profildata.php";
     public static String profilimage=address+"profilimage.php";
+    public static String addDite=address+"adddite.php";
+    public static String addditeimage=address+"diteimage.php";
+    public static String addActivity=address+"addactivity.php";
 }
