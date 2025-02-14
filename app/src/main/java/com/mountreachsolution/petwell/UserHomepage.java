@@ -47,6 +47,7 @@ BottomNavigationView bottomNavigationView;
     userHome userHome1=new userHome();
     UserProfil userProfil = new UserProfil();
     AddActivity addActivity = new AddActivity();
+    DiteAdd diteAdd = new DiteAdd();
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -56,6 +57,8 @@ BottomNavigationView bottomNavigationView;
             getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayoutuserhome,addActivity).commit();
         } else if(item.getItemId()==R.id.profil){
             getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayoutuserhome,userProfil).commit();
+        }else if(item.getItemId()==R.id.addDite){
+            getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayoutuserhome,diteAdd).commit();
         }
         return true;
     }
