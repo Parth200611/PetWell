@@ -1,8 +1,11 @@
 package com.mountreachsolution.petwell;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowInsetsController;
@@ -60,6 +63,35 @@ BottomNavigationView bottomNavigationView;
         }else if(item.getItemId()==R.id.addDite){
             getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayoutuserhome,diteAdd).commit();
         }
+        return true;
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.usermenu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==R.id.addmedicin){
+            Intent i = new Intent(UserHomepage.this,AddMedicin.class);
+            startActivity(i);
+
+        } else if (item.getItemId() == R.id.Addappointment) {
+            Intent i = new Intent(UserHomepage.this,AddAppopiment.class);
+            startActivity(i);
+
+        } else if (item.getItemId() == R.id.help) {
+            Intent i = new Intent(UserHomepage.this,Help.class);
+            startActivity(i);
+
+        } else if (item.getItemId() == R.id.AboutUs) {
+            Intent i = new Intent(UserHomepage.this,AboutUs.class);
+            startActivity(i);
+
+        }
+
         return true;
     }
 }

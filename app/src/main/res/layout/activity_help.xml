@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal">
+
+        <!-- Help Header -->
+        <TextView
+            android:id="@+id/tvHelpTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Help And Support"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"/>
+
+        <!-- Description -->
+        <TextView
+            android:id="@+id/tvHelpDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Need assistance? We're here to help! Call your vet or browse FAQs below."
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:paddingBottom="20dp"/>
+
+        <!-- Call Doctor Button -->
+        <Button
+            android:id="@+id/btnCallDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Call Veterinarian"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/orange"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Help Topics -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Common Questions"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🐶 How to track my pet’s diet?\nClick on 'Daily Diet' in the app to update meals."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏃 How do I log my pet’s activity?\nUse 'Activity Tracker' to enter playtime details."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💊 How to set medicine reminders?\nGo to 'Medicine' and schedule reminders."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📅 How to book a vet appointment?\nClick 'Appointments' and choose a date."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingBottom="10dp"/>
+
+    </LinearLayout>
+</ScrollView>
