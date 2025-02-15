@@ -146,9 +146,7 @@ public class userHome extends Fragment {
                     }
                     AdpterMedicin adpterMedicin = new AdpterMedicin(pojomedicins,getActivity());
                     rvListMed.setAdapter(adpterMedicin);
-                    rvListMed.setAdapter(adpterMedicin);
-                    rvListMed.setVisibility(View.VISIBLE);
-                    tvNoMedicine.setVisibility(View.GONE);
+
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
 
