@@ -10,4 +10,6 @@ public class urls {
     public static String addDite=address+"adddite.php";
     public static String addditeimage=address+"diteimage.php";
     public static String addActivity=address+"addactivity.php";
+    public static String getpetdata=address+"petdata.php";
+    public static String petImage=address+"petimage.php";
 }
