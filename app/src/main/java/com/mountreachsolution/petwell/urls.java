@@ -20,4 +20,6 @@ public class urls {
     public static String addmedicinimage=address+"addmedicinimage.php";
     public static String getMedicin=address+"getmedicin.php";
     public static String removemedicin=address+"removemed.php";
+    public static String addappoinment=address+"addappo.php";
+    public static String addappoimage=address+"addappimage.php";
 }
