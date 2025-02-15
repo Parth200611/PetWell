@@ -64,6 +64,7 @@ public class userHome extends Fragment {
     AdpterActivity adpterActivity;
 
     List<POJODiet>pojoDiets;
+    List<POJOMEDICIN> pojomedicins;
 
 
 
@@ -88,10 +89,11 @@ public class userHome extends Fragment {
         rvListDiet = view.findViewById(R.id.rvListDite);
         pojoDiets=new ArrayList<>();
         rvListMed = view.findViewById(R.id.rvListMed);
+        pojomedicins=new ArrayList<>();
 
         rvListActivity.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         rvListDiet.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rvListActivity.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        rvListMed.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         
 
         tvNoActivity = view.findViewById(R.id.tvnoActivity);
@@ -100,6 +102,7 @@ public class userHome extends Fragment {
         getPetdata(username);
         getAcitvitydata(username);
         getDiet(username);
+        getMedicin(username);
         btnAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,6 +112,54 @@ public class userHome extends Fragment {
 
 
         return view;
+    }
+
+    private void getMedicin(String username) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("username",username);
+        client.post(urls.getMedicin,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    Log.d("API_SUCCESS", "Response: " + response.toString());
+                    JSONArray jsonArray = response.getJSONArray("getActivity");
+
+
+
+                    if (jsonArray.length()==0){
+                        rvListMed.setVisibility(View.GONE);
+                        tvNoMedicine.setVisibility(View.VISIBLE);
+                    }
+                    for (int i =0;i<jsonArray.length();i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String id=jsonObject.getString("id");
+                        String strusername=jsonObject.getString("username");
+                        String strtime=jsonObject.getString("time");
+                        String strdate=jsonObject.getString("date");
+                        String strname=jsonObject.getString("name");
+                        String strwith=jsonObject.getString("withwhat");
+                        String strdis=jsonObject.getString("dis");
+                        String strimage=jsonObject.getString("image");
+                        pojomedicins.add(new POJOMEDICIN(id,strusername,strtime,strdate,strname,strdis,strwith,strimage));
+                    }
+                    AdpterMedicin adpterMedicin = new AdpterMedicin(pojomedicins,getActivity());
+                    rvListMed.setAdapter(adpterMedicin);
+                    rvListMed.setAdapter(adpterMedicin);
+                    rvListMed.setVisibility(View.VISIBLE);
+                    tvNoMedicine.setVisibility(View.GONE);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+        });
     }
 
     private void getDiet(String username) {
