@@ -1,10 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddMedicin">
+    android:background="@color/white"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+    <TextView
+        android:id="@+id/tvHelpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Medicin"
+        android:textSize="24sp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        /> <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Medicin Name"
+    android:layout_marginTop="16sp"
+        />
+    <EditText
+        android:id="@+id/etMedicineName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ettext"
+        android:padding="12dp"
+        android:hint="Medicine Name"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Medicin Description"
+        android:layout_marginTop="10sp"
+        />
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:background="@drawable/ettext"
+        android:padding="12dp"
+        android:inputType="textMultiLine"/>
+
+    <!-- Select Date -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date"
+        android:layout_marginTop="10sp"/>
+
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Date"
+        android:background="@drawable/ettext"
+        android:padding="12dp"
+        android:focusable="false"/>
+
+    <!-- Select Time -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Time"
+        android:layout_marginTop="10sp"/>
+
+    <EditText
+        android:id="@+id/etTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Time"
+        android:background="@drawable/ettext"
+        android:padding="12dp"
+        android:focusable="false"/>
+
+    <!-- Spinner to select how to give medicine -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select With"
+        android:layout_marginTop="10sp"/>
+    <Spinner
+        android:id="@+id/spinnerWith"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ettext"
+        android:padding="12dp"
+        />
+
+    <!-- Image View & Upload Button -->
+    <ImageView
+        android:id="@+id/ivMedicineImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baseline_assignment_add_24"
+        android:layout_marginTop="12sp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnUploadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+
+        android:backgroundTint="@color/orange"/>
+
+    <!-- Submit Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPostSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="80dp"
+            android:backgroundTint="@color/orange"
+            android:textColor="@color/white"
+            android:text="Post Medicine Schedule" />
+    </LinearLayout>
+
+</ScrollView>

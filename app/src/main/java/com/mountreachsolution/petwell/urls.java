@@ -16,4 +16,6 @@ public class urls {
     public static String getDite=address+"getdiet.php";
     public static String removedite=address+"removedite.php";
     public static String removeactivity=address+"removeactivity.php";
+    public static String addMedicin=address+"addmedicin.php";
+    public static String addmedicinimage=address+"addmedicinimage.php";
 }
