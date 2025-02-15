@@ -5,15 +5,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
+import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdpterMedicin extends RecyclerView.Adapter<AdpterMedicin.ViewhOlder> {
@@ -48,9 +56,57 @@ public class AdpterMedicin extends RecyclerView.Adapter<AdpterMedicin.ViewhOlder
                 .skipMemoryCache(true)
                 .error(R.drawable.baseline_person_24)// Resize the image to 800x800 pixels
                 .into(holder.cvImage);
+        holder.btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id= schedule.getId();
+                RemovethePost(schedule.getId(), holder.getAdapterPosition());
+            }
+        });
 
 
     }
+
+    private void RemovethePost(String id, int position) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("id", id);
+
+        client.post(urls.removemedicin, params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    String status = response.getString("status");
+                    if (status.equals("success")) {
+                        Toast.makeText(activity, "Medicin  Removed!", Toast.LENGTH_SHORT).show();
+
+                        // Remove item from list and update RecyclerView
+                        pojomedicins.remove(position);
+                        notifyItemRemoved(position);
+                        notifyItemRangeChanged(position, pojomedicins.size());
+
+                    } else {
+                        Toast.makeText(activity, "Failed to Remove", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(activity, "Error: Unable to Remove Diet", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+    }
+
+
+
 
     @Override
     public int getItemCount() {
