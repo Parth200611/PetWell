@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 public class POJODiet {
     String id,username,time,date,food,quantity,dis,drink,image;

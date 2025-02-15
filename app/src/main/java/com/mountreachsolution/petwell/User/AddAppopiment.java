@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -18,9 +18,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -31,6 +28,9 @@ import com.android.volley.toolbox.Volley;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.mountreachsolution.petwell.R;
+import com.mountreachsolution.petwell.VolleyMultipartRequest;
+import com.mountreachsolution.petwell.urls;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
@@ -32,6 +32,15 @@ import com.bumptech.glide.Glide;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.mountreachsolution.petwell.R;
+import com.mountreachsolution.petwell.User.AdpterActivity;
+import com.mountreachsolution.petwell.User.AdpterDiet;
+import com.mountreachsolution.petwell.User.AdpterMedicin;
+import com.mountreachsolution.petwell.User.POJODiet;
+import com.mountreachsolution.petwell.User.POJOGETACTIVITY;
+import com.mountreachsolution.petwell.User.POJOMEDICIN;
+import com.mountreachsolution.petwell.VolleyMultipartRequest;
+import com.mountreachsolution.petwell.urls;
 
 import org.json.JSONArray;
 import org.json.JSONException;

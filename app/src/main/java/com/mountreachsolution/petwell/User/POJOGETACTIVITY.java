@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 public class POJOGETACTIVITY {
     String id,username,time,date,exercise,duration,dis;

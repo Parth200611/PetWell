@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +17,9 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.mountreachsolution.petwell.LoginActivity;
+import com.mountreachsolution.petwell.R;
+import com.mountreachsolution.petwell.urls;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -126,7 +129,7 @@ public class PetRegister extends AppCompatActivity {
                     if (status.equals("1")){
                         progressDialog.dismiss();
                         Toast.makeText(PetRegister.this, "Your Dear One Is Register!", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(PetRegister.this,LoginActivity.class);
+                        Intent i = new Intent(PetRegister.this, LoginActivity.class);
                         startActivity(i);
                     }else {
                         Toast.makeText(PetRegister.this, "Fail to Register", Toast.LENGTH_SHORT).show();

@@ -14,29 +14,29 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AboutUs"
+            android:name=".User.AboutUs"
             android:exported="false" />
         <activity
-            android:name=".AddMedicin"
+            android:name=".User.AddMedicin"
             android:exported="false" />
         <activity
-            android:name=".AddAppopiment"
+            android:name=".User.AddAppopiment"
             android:exported="false" />
         <activity
             android:name=".Help"
             android:exported="false" />
         <activity
-            android:name=".UserHomepage"
+            android:name=".User.UserHomepage"
             android:exported="false"
             android:theme="@style/showactionbar" />
         <activity
-            android:name=".PetRegister"
+            android:name=".User.PetRegister"
             android:exported="false" />
         <activity
-            android:name=".Registration"
+            android:name=".User.Registration"
             android:exported="false" />
         <activity
-            android:name=".AdminHomepage"
+            android:name=".User.AdminHomepage"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

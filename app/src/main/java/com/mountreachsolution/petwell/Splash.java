@@ -9,9 +9,9 @@ import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.mountreachsolution.petwell.User.AdminHomepage;
+import com.mountreachsolution.petwell.User.UserHomepage;
 
 public class Splash extends AppCompatActivity {
 

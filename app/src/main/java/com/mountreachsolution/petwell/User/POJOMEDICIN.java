@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 public class POJOMEDICIN {
     String id,username,time,date,name,dic,with,image;

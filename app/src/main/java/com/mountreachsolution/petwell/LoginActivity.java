@@ -11,13 +11,13 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.mountreachsolution.petwell.User.AdminHomepage;
+import com.mountreachsolution.petwell.User.Registration;
+import com.mountreachsolution.petwell.User.UserHomepage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
              } else if (password.isEmpty()) {
                  Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
              }else if(username.equals("Admin") && password.equals("Admin")){
-                 Intent i = new Intent(LoginActivity.this,AdminHomepage.class);
+                 Intent i = new Intent(LoginActivity.this, AdminHomepage.class);
                  startActivity(i);
              }else {
                  LogIN();
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         tvNewUser.setOnClickListener(v -> {
-            Intent i = new Intent(LoginActivity.this,Registration.class);
+            Intent i = new Intent(LoginActivity.this, Registration.class);
             startActivity(i);
 
         });
@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                     String success=response.getString("success");
                     if (success.equals("1")){
                         Toast.makeText(LoginActivity.this, "Welcome Back!", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(LoginActivity.this,UserHomepage.class);
+                        Intent i = new Intent(LoginActivity.this, UserHomepage.class);
                         startActivity(i);
                         saveLoginState(username);
                     }else {

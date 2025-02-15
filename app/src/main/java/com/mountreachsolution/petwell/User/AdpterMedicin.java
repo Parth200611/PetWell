@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -15,6 +15,8 @@ import com.bumptech.glide.Glide;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.mountreachsolution.petwell.R;
+import com.mountreachsolution.petwell.urls;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,47 +26,46 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class AdpterDiet extends RecyclerView.Adapter<AdpterDiet.ViewHolder> {
-    List<POJODiet>pojoDiets;
+public class AdpterMedicin extends RecyclerView.Adapter<AdpterMedicin.ViewhOlder> {
+    List<POJOMEDICIN> pojomedicins;
     Activity activity;
-    POJODiet item;
 
-    public AdpterDiet(List<POJODiet> pojoDiets, Activity activity) {
-        this.pojoDiets = pojoDiets;
+    public AdpterMedicin(List<POJOMEDICIN> pojomedicins, Activity activity) {
+        this.pojomedicins = pojomedicins;
         this.activity = activity;
     }
 
     @NonNull
     @Override
-    public AdpterDiet.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(activity).inflate(R.layout.dite,parent,false);
-        return new ViewHolder(view);
+    public AdpterMedicin.ViewhOlder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(activity).inflate(R.layout.med,parent,false);
+        return new ViewhOlder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdpterDiet.ViewHolder holder, int position) {
-         item = pojoDiets.get(position);
+    public void onBindViewHolder(@NonNull AdpterMedicin.ViewhOlder holder, int position) {
+        POJOMEDICIN schedule = pojomedicins.get(position);
 
-        // Set data
-        holder.tvDiteName.setText(item.getFood());
-        holder.tvTime.setText(item.getTime());
-        holder.tvDate.setText(item.getDate());
-        holder.tvQuantity.setText(item.getQuantity());
-        holder.tvDrink.setText(item.getDrink());
-        holder.tvDis.setText(item.getDis());
+        // Setting data to TextViews
+        holder.tvName.setText(schedule.getName());
+        holder.tvTime.setText(schedule.getTime());
+        holder.tvDate.setText(schedule.getDate());
+        holder.tvWith.setText(schedule.getWith());
+        holder.tvDis.setText(schedule.getDic());
+
         Glide.with(activity)
-                .load(urls.address + "images/"+item.getImage())
+                .load(urls.address + "images/"+schedule.getImage())
                 .skipMemoryCache(true)
                 .error(R.drawable.baseline_person_24)// Resize the image to 800x800 pixels
                 .into(holder.cvImage);
-
         holder.btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id= item.getId();
-                RemovethePost(item.getId(), holder.getAdapterPosition());
+                String id= schedule.getId();
+                RemovethePost(schedule.getId(), holder.getAdapterPosition());
             }
         });
+
 
     }
 
@@ -73,19 +74,19 @@ public class AdpterDiet extends RecyclerView.Adapter<AdpterDiet.ViewHolder> {
         RequestParams params = new RequestParams();
         params.put("id", id);
 
-        client.post(urls.removedite, params, new JsonHttpResponseHandler() {
+        client.post(urls.removemedicin, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 try {
                     String status = response.getString("status");
                     if (status.equals("success")) {
-                        Toast.makeText(activity, "Diet Removed!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, "Medicin  Removed!", Toast.LENGTH_SHORT).show();
 
                         // Remove item from list and update RecyclerView
-                        pojoDiets.remove(position);
+                        pojomedicins.remove(position);
                         notifyItemRemoved(position);
-                        notifyItemRangeChanged(position, pojoDiets.size());
+                        notifyItemRangeChanged(position, pojomedicins.size());
 
                     } else {
                         Toast.makeText(activity, "Failed to Remove", Toast.LENGTH_SHORT).show();
@@ -106,27 +107,27 @@ public class AdpterDiet extends RecyclerView.Adapter<AdpterDiet.ViewHolder> {
 
     }
 
+
+
+
     @Override
     public int getItemCount() {
-        return pojoDiets.size();
+        return pojomedicins.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDiteName, tvTime, tvDate, tvQuantity, tvDrink, tvDis;
+    public class ViewhOlder extends RecyclerView.ViewHolder {
         CircleImageView cvImage;
+        TextView tvName, tvTime, tvDate, tvWith, tvDis;
         AppCompatButton btnDone;
-
-        public ViewHolder(@NonNull View itemView) {
+        public ViewhOlder(@NonNull View itemView) {
             super(itemView);
-            tvDiteName = itemView.findViewById(R.id.tvDiteName);
+            cvImage = itemView.findViewById(R.id.cvImage);
+            tvName = itemView.findViewById(R.id.tvName);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvDate = itemView.findViewById(R.id.tvDate);
-            tvQuantity = itemView.findViewById(R.id.tvQuantity);
-            tvDrink = itemView.findViewById(R.id.tvDrink);
+            tvWith = itemView.findViewById(R.id.tvwith);
             tvDis = itemView.findViewById(R.id.tvDis);
-            cvImage = itemView.findViewById(R.id.cvImage);
             btnDone = itemView.findViewById(R.id.btnDone);
-
         }
     }
 }

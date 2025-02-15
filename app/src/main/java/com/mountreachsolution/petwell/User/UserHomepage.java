@@ -1,4 +1,4 @@
-package com.mountreachsolution.petwell;
+package com.mountreachsolution.petwell.User;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -15,11 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.mountreachsolution.petwell.Help;
+import com.mountreachsolution.petwell.R;
 
 public class UserHomepage extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -75,19 +74,19 @@ BottomNavigationView bottomNavigationView;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.addmedicin){
-            Intent i = new Intent(UserHomepage.this,AddMedicin.class);
+            Intent i = new Intent(UserHomepage.this, AddMedicin.class);
             startActivity(i);
 
         } else if (item.getItemId() == R.id.Addappointment) {
-            Intent i = new Intent(UserHomepage.this,AddAppopiment.class);
+            Intent i = new Intent(UserHomepage.this, AddAppopiment.class);
             startActivity(i);
 
         } else if (item.getItemId() == R.id.help) {
-            Intent i = new Intent(UserHomepage.this,Help.class);
+            Intent i = new Intent(UserHomepage.this, Help.class);
             startActivity(i);
 
         } else if (item.getItemId() == R.id.AboutUs) {
-            Intent i = new Intent(UserHomepage.this,AboutUs.class);
+            Intent i = new Intent(UserHomepage.this, AboutUs.class);
             startActivity(i);
 
         }
