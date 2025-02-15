@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.MediaStore;
@@ -38,7 +39,9 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
@@ -57,6 +60,10 @@ public class userHome extends Fragment {
     private  int pick_image_request=789;
 
     private static final int PICK_IMAGE_REQUEST_PASS = 1;
+    List<POJOGETACTIVITY> pojogetactivities;
+    AdpterActivity adpterActivity;
+
+    List<POJODiet>pojoDiets;
 
 
 
@@ -77,13 +84,22 @@ public class userHome extends Fragment {
         btnAddImage = view.findViewById(R.id.btnAddimage);
 
         rvListActivity = view.findViewById(R.id.rvListActvity);
+        pojogetactivities=new ArrayList<>();
         rvListDiet = view.findViewById(R.id.rvListDite);
+        pojoDiets=new ArrayList<>();
         rvListMed = view.findViewById(R.id.rvListMed);
+
+        rvListActivity.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        rvListDiet.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        rvListActivity.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        
 
         tvNoActivity = view.findViewById(R.id.tvnoActivity);
         tvNoDiet = view.findViewById(R.id.tvnoDiet);
         tvNoMedicine = view.findViewById(R.id.tvnoMedicin);
         getPetdata(username);
+        getAcitvitydata(username);
+        getDiet(username);
         btnAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +109,92 @@ public class userHome extends Fragment {
 
 
         return view;
+    }
+
+    private void getDiet(String username) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("username",username);
+        client.post(urls.getDite,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    JSONArray jsonArray = response.getJSONArray("getDiet");
+                    if (jsonArray.length()==0){
+                        rvListDiet.setVisibility(View.GONE);
+                        tvNoDiet.setVisibility(View.VISIBLE);
+                    }
+                    for (int i =0;i<jsonArray.length();i++){
+                        JSONObject jsonObject=jsonArray.getJSONObject(i);
+                        String id=jsonObject.getString("id");
+                        String strusername=jsonObject.getString("username");
+                        String strtime=jsonObject.getString("time");
+                        String strdate=jsonObject.getString("date");
+                        String strfood=jsonObject.getString("food");
+                        String strquantity=jsonObject.getString("quantity");
+                        String strdis=jsonObject.getString("dis");
+                        String strDrink=jsonObject.getString("drink");
+                        String strimage=jsonObject.getString("image");
+                        pojoDiets.add(new POJODiet(id,strusername,strtime,strdate,strfood,strquantity,strdis,strDrink,strimage));
+
+                    }
+                    AdpterDiet adpterDiet = new AdpterDiet(pojoDiets,getActivity());
+                    rvListDiet.setAdapter(adpterDiet);
+
+
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+        });
+    }
+
+    private void getAcitvitydata(String username) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("username",username);
+        client.post(urls.getActivitydata,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    JSONArray jsonArray=response.getJSONArray("getActivity");
+                    if (jsonArray.length()==0){
+                        rvListActivity.setVisibility(View.GONE);
+                        tvNoActivity.setVisibility(View.VISIBLE);
+                    }
+                    for (int i =0;i<jsonArray.length();i++){
+                        JSONObject jsonObject=jsonArray.getJSONObject(i);
+                        String id=jsonObject.getString("id");
+                        String strusername=jsonObject.getString("username");
+                        String strtime=jsonObject.getString("time");
+                        String strdate=jsonObject.getString("date");
+                        String strexercise=jsonObject.getString("exercis");
+                        String strduration=jsonObject.getString("duratoion");
+                        String strdis=jsonObject.getString("dis");
+                        pojogetactivities.add(new POJOGETACTIVITY(id,strusername,strtime,strdate,strexercise,strduration,strdis));
+                    }
+                    adpterActivity=new AdpterActivity(pojogetactivities,getActivity());
+                    rvListActivity.setAdapter(adpterActivity);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+        });
     }
 
     private void getPetdata(String username) {

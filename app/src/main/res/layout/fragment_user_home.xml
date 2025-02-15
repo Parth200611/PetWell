@@ -187,8 +187,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/rvListActvity"
             android:layout_marginTop="16sp"
-            android:layout_marginStart="16sp"
-            android:layout_marginEnd="16sp"
+
             />
         <TextView
             android:layout_width="wrap_content"
@@ -217,8 +216,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/rvListDite"
             android:layout_marginTop="16sp"
-            android:layout_marginStart="16sp"
-            android:layout_marginEnd="16sp"
+
             />
         <TextView
             android:layout_width="wrap_content"
