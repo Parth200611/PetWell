@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.mountreachsolution.petwell.User.AdminHomepage;
+import com.mountreachsolution.petwell.Admijn.AdminHomepage;
 import com.mountreachsolution.petwell.User.Registration;
 import com.mountreachsolution.petwell.User.UserHomepage;
 
@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
              } else if (password.isEmpty()) {
                  Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
              }else if(username.equals("Admin") && password.equals("Admin")){
+                 saveLoginState(username); // Save login as Admin
                  Intent i = new Intent(LoginActivity.this, AdminHomepage.class);
                  startActivity(i);
              }else {

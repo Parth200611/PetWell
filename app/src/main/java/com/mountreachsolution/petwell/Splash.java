@@ -10,7 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.mountreachsolution.petwell.User.AdminHomepage;
+import com.mountreachsolution.petwell.Admijn.AdminHomepage;
 import com.mountreachsolution.petwell.User.UserHomepage;
 
 public class Splash extends AppCompatActivity {

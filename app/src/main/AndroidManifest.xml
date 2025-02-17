@@ -36,8 +36,9 @@
             android:name=".User.Registration"
             android:exported="false" />
         <activity
-            android:name=".User.AdminHomepage"
-            android:exported="false" />
+            android:name=".Admijn.AdminHomepage"
+            android:exported="false"
+            android:theme="@style/showactionbar"/>
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
