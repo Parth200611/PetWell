@@ -22,4 +22,6 @@ public class urls {
     public static String removemedicin=address+"removemed.php";
     public static String addappoinment=address+"addappo.php";
     public static String addappoimage=address+"addappimage.php";
+    public static String getAllUser=address+"getAllUser.php";
+    public static String removeUser=address+"removeuser.php";
 }

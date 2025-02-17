@@ -30,13 +30,14 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 
 public class PetRegister extends AppCompatActivity {
-     String petName, petBreed, petAge, petColor, petWeight;
+     String petName, petBreed, petAge, petColor, petWeight,petGender;
 
     EditText etPetName;
     EditText etPetBreed;
     EditText etPetAge;
     EditText etPetColor;
     EditText etPetWeight;
+    EditText etPetGender;
     String petCategory;
 
     AppCompatButton btnSubmitPetDetails;
@@ -60,6 +61,7 @@ public class PetRegister extends AppCompatActivity {
         etPetAge = findViewById(R.id.etPetAge);
         etPetColor = findViewById(R.id.etPetColor);
         etPetWeight = findViewById(R.id.etPetWeight);
+        etPetGender = findViewById(R.id.etPetGender);
         spinnerCategory = findViewById(R.id.spinnerCategory);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
@@ -97,9 +99,10 @@ public class PetRegister extends AppCompatActivity {
         petAge = etPetAge.getText().toString().trim();
         petColor = etPetColor.getText().toString().trim();
         petWeight = etPetWeight.getText().toString().trim();
+        petGender = etPetGender.getText().toString().trim();
 
         // Validation - Check if any field is empty
-        if (petName.isEmpty() || petBreed.isEmpty() || petAge.isEmpty() || petColor.isEmpty() || petWeight.isEmpty()) {
+        if (petName.isEmpty() || petBreed.isEmpty() || petAge.isEmpty() || petColor.isEmpty() || petWeight.isEmpty() || petGender.isEmpty()) {
             Toast.makeText(this, "Please enter all the details!", Toast.LENGTH_SHORT).show();
         } else {
             progressDialog = new ProgressDialog(PetRegister.this);
@@ -119,6 +122,7 @@ public class PetRegister extends AppCompatActivity {
         params.put("color",petColor);
         params.put("weight",petWeight);
         params.put("category",petCategory);
+        params.put("gender",petGender);
 
         client.post(urls.petuserregister,params,new JsonHttpResponseHandler(){
             @Override

@@ -109,7 +109,19 @@
             android:hint="Enter Pet Weight"
             android:background="@drawable/ettext"
             android:padding="12dp"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"/> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:layout_marginTop="12dp"/>
+        <EditText
+            android:id="@+id/etPetGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Pet Gender"
+            android:background="@drawable/ettext"
+            android:padding="12dp"
+            android:inputType="text"/>
 
         <!-- Submit Button -->
         <androidx.appcompat.widget.AppCompatButton
