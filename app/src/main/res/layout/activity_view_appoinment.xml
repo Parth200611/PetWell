@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admijn.AdminHome">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Appointment"
+        android:textColor="@color/blue"
+        android:textSize="28dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="16sp"
+        android:textStyle="bold"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rvList"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="NO USER"
+        android:textStyle="bold"
+        android:textSize="31dp"
+        android:gravity="center"
+        android:id="@+id/tvNoUser"
+        android:visibility="gone"
+        />
+
+
+</LinearLayout>

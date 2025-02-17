@@ -8,6 +8,10 @@
     android:icon="@drawable/baseline_assignment_add_24"
     android:title="Add Appointment"
     /> <item
+    android:id="@+id/ViewAppoinment"
+    android:icon="@drawable/baseline_assignment_add_24"
+    android:title="View Appointment"
+    /> <item
     android:id="@+id/help"
     android:icon="@drawable/baseline_food_bank_24"
     android:title="Help"

@@ -89,6 +89,10 @@ BottomNavigationView bottomNavigationView;
             Intent i = new Intent(UserHomepage.this, AboutUs.class);
             startActivity(i);
 
+        } else if (item.getItemId() == R.id.ViewAppoinment) {
+            Intent i = new Intent(UserHomepage.this, ViewAppoinment.class);
+            startActivity(i);
+
         }
 
         return true;
