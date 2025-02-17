@@ -12,7 +12,7 @@
         android:text="All Appointment"
         android:textColor="@color/blue"
         android:textSize="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="16sp"
         android:textStyle="bold"
         />

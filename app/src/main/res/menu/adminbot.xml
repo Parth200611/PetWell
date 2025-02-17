@@ -8,6 +8,10 @@
     android:id="@+id/adminappopiment"
     android:icon="@drawable/baseline_assignment_add_24"
     android:title="Appointment Request"
+    /><item
+    android:id="@+id/viewappoinment"
+    android:icon="@drawable/baseline_assignment_add_24"
+    android:title="View Appointment"
     />  <item
     android:id="@+id/adminprofil"
     android:icon="@drawable/baseline_person_24"

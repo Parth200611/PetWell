@@ -28,4 +28,5 @@ public class urls {
     public static String addconfirmappo=address+"addconfirmappo.php";
     public static String removeAppo=address+"removeAppo.php";
     public static String getconbyusername=address+"getconbyusername.php";
+    public static String getcoonfirappo=address+"getcoonfirappo.php";
 }

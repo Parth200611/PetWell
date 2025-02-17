@@ -51,6 +51,7 @@ public class AdminHomepage extends AppCompatActivity implements BottomNavigation
     AdminHome adminHome = new AdminHome();
     Adminappo adminappo=new Adminappo();
     adminprofil adminprofil1=new adminprofil();
+    Viewappoinment viewappoinment= new Viewappoinment();
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -60,6 +61,8 @@ public class AdminHomepage extends AppCompatActivity implements BottomNavigation
             getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayoutuserhome,adminappo).commit();
         } else if(item.getItemId()==R.id.adminprofil) {
             getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayoutuserhome, adminprofil1).commit();
+        }else if(item.getItemId()==R.id.viewappoinment) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayoutuserhome, viewappoinment).commit();
         }
         return true;
     }
